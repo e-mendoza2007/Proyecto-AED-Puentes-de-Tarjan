@@ -1,0 +1,28 @@
+{
+  "algo": "tarjan",
+  "n": 4,
+  "edges": [[0,1],[1,2],[1,2],[2,3]],
+  "bridges": [0,3],
+  "ops": 12,
+  "events": [
+    {"t":"new_root","v":0,"ops":0},
+    {"t":"enter","v":0,"tin":0,"ops":1},
+    {"t":"tree","u":0,"v":1,"e":0,"ops":2},
+    {"t":"enter","v":1,"tin":1,"ops":3},
+    {"t":"tree","u":1,"v":2,"e":1,"ops":5},
+    {"t":"enter","v":2,"tin":2,"ops":6},
+    {"t":"back","u":2,"v":1,"e":2,"low":1,"ops":8},
+    {"t":"tree","u":2,"v":3,"e":3,"ops":9},
+    {"t":"enter","v":3,"tin":3,"ops":10},
+    {"t":"exit","v":3,"ops":11},
+    {"t":"low","v":2,"low":1,"ops":11},
+    {"t":"check","u":2,"v":3,"e":3,"lowv":3,"tinu":2,"bridge":true,"ops":11},
+    {"t":"exit","v":2,"ops":11},
+    {"t":"low","v":1,"low":1,"ops":11},
+    {"t":"check","u":1,"v":2,"e":1,"lowv":1,"tinu":1,"bridge":false,"ops":11},
+    {"t":"exit","v":1,"ops":12},
+    {"t":"low","v":0,"low":0,"ops":12},
+    {"t":"check","u":0,"v":1,"e":0,"lowv":1,"tinu":0,"bridge":true,"ops":12},
+    {"t":"exit","v":0,"ops":12}
+  ]
+}

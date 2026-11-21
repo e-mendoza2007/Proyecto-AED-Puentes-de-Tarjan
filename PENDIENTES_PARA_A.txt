@@ -1,0 +1,54 @@
+Hola A. Para que A y B encajen sin reescribir nada, sigamos este contrato.
+Te paso el zip del proyecto (puentes_parteB.zip) con el repo base.
+
+1) ENTRADA del C++: stdin con "n m" y luego m lineas "u v" (0-indexado).
+   El id de arista es el indice de la linea. Puede haber aristas paralelas,
+   autolazos y nodos aislados.
+
+2) ALGORITMO (tu src/tarjan.cpp, reemplaza a src/tarjan_ref.cpp):
+   - DFS con tin[] y low[].
+   - Salta la arista padre por ID de arista, NO por vertice padre
+     (si no, las aristas paralelas salen mal como puente).
+   - Lanza el DFS desde cada nodo no visitado (grafo desconectado).
+   - Puente si low[v] > tin[u] en la arista de arbol (u,v).
+
+3) SALIDA: JSON por stdout, con los campos
+   {"algo":"tarjan","n","edges":[[u,v]..],"bridges":[ids],"ops":N,"events":[..]}
+   y el flag --compact (sin eventos, solo resultado y ops).
+   Eventos (todos llevan "ops"):
+   new_root{v}, enter{v,tin}, tree{u,v,e}, back{u,v,e,low},
+   low{v,low}, check{u,v,e,lowv,tinu,bridge}, exit{v}
+   Mira src/tarjan_ref.cpp: ya los emite asi; puedes partir de ahi.
+   "ops" = +1 por cada entrada de adyacencia examinada y +1 por cada
+   nodo descubierto (asi comparamos con la fuerza bruta de B).
+
+4) VALIDACION: tu binario debe quedar como bin/tarjan y pasar
+   python3 scripts/cross_check.py (compara con la fuerza bruta de B en
+   500 grafos aleatorios). Todo se corre con: sh scripts/run_all.sh
+
+5) TUS ESCENAS (Manim Community, la misma libreria de la galeria):
+   - manim/intro_A.py  con la clase Intro  (que es un puente, para que sirve,
+     como funciona; ejemplo del cable o la carretera). OJO: Puentes es un
+     ALGORITMO, no un TDA: se dice para que sirve y como funciona.
+   - manim/demo_A.py   con la clase Demo   (paso a paso en un grafo de 7-8
+     nodos con al menos una back edge y un puente).
+   - Usa graphs/demo.txt y traces/tarjan_demo.json (crealos tu).
+   - Reutiliza TarjanPlayer de manim/common.py: ya muestra tin/low junto a
+     cada nodo, back edges en naranja y puente en rojo cuando low[v] > tin[u].
+   - Usa Text (no MathTex) para no depender de LaTeX.
+   - Nombres exactos de archivo/clase, porque scripts/join.sh los une asi.
+   - Si necesitas cambiar common.py, avisame antes (lo usamos los dos).
+
+6) INFORME (tu): descripcion del algoritmo y por que es correcto
+   (tin, low, criterio del puente), y que estructuras usa por dentro
+   (grafo con listas de adyacencia, pila de recursion, arreglos tin/low).
+
+7) FECHAS PROPUESTAS (entrega 22/11 20:00 por Gradescope):
+   17/11 tu tarjan.cpp pasando cross_check
+   19/11 tus escenas renderizadas
+   20/11 unimos el video (scripts/join.sh) y revisamos duracion (~3 min, max 5)
+   21/11 informe completo, enlaces probados, subimos a Gradescope
+
+8) PENDIENTES DEL GRUPO: nombres en manim/credits.py, contribuciones y
+   2 conclusiones del informe, repo de GitHub con README, y citar a
+   3Blue1Brown si nos inspiramos en sus videos.
