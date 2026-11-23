@@ -1,5 +1,5 @@
 #!/bin/sh
-# Fusiona A+B. Si falta algun clip, falla en vez de generar un video incompleto.
+# Fusiona portada+A+B+creditos (10 clips). Si falta algun clip, falla.
 # Uso: sh scripts/join.sh (desde la raiz del repositorio; requiere ffmpeg y ffprobe)
 set -eu
 V='media/videos'
@@ -9,6 +9,7 @@ for f in \
   credits/1080p60/Portada \
   intro_A/1080p60/Intro \
   demo_A/1080p60/Demo \
+  fuerza_bruta/1080p60/FuerzaBruta \
   edge_cases/1080p60/CasoArbol \
   edge_cases/1080p60/CasoCiclo \
   edge_cases/1080p60/CasoParalelas \

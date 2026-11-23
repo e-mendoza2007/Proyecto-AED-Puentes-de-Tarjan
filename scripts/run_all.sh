@@ -1,7 +1,7 @@
 #!/bin/sh
 # Uso (desde la raiz):
 #   sh scripts/run_all.sh           compila, genera trazas y prueba
-#   sh scripts/run_all.sh render-b  renderiza solo las escenas de la Parte B
+#   sh scripts/run_all.sh render-b  renderiza solo las seis escenas de la Parte B
 #   sh scripts/run_all.sh render    renderiza todas las escenas A+B (requiere A terminada)
 set -eu
 mkdir -p bin traces
@@ -33,6 +33,7 @@ if [ "${1:-}" = 'render' ]; then
   done
 fi
 if [ "${1:-}" = 'render-b' ] || [ "${1:-}" = 'render' ]; then
+  manim -qh manim/fuerza_bruta.py FuerzaBruta
   manim -qh manim/edge_cases.py CasoArbol CasoCiclo CasoParalelas CasoDesconectado
   manim -qh manim/complexity.py Complejidad
   if [ "${1:-}" = 'render' ]; then
