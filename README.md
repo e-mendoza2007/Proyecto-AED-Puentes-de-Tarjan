@@ -106,7 +106,11 @@ La escena adicional de explicación del código se puede generar con:
 manim -pqh manim/codigo_A.py Codigo
 ```
 
-Esta escena adicional **no está incluida** entre los 10 clips predeterminados de `scripts/join.sh`.
+El video de la **Parte A** (Portada + Intro + Codigo + Demo) se une con:
+
+```bash
+sh scripts/join_A.sh      # genera video_parteA.mp4
+```
 
 Los MP4 se guardan normalmente en `media/videos/<nombre_del_archivo>/1080p60/`.
 

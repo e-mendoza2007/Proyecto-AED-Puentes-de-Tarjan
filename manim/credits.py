@@ -4,7 +4,7 @@ from common import *
 
 TITULO = "Puentes en un grafo: algoritmo de Tarjan"
 CURSO = "CS2023 - Algoritmos y Estructuras de Datos  |  UTEC 2026-2"
-INTEGRANTES = ["[Integrante A]", "[Integrante B]", "[Integrante C]"]   # <- completar
+INTEGRANTES = ["Mahir Gianpier Gutierrez Rodriguez", "Ernesto Yen Mendoza Aguilar"]
 INSPIRACION = "Estilo inspirado en 3Blue1Brown y la galeria de Manim Community"
 
 
@@ -20,6 +20,6 @@ class Creditos(Scene):
     def construct(self):
         t = Text("Creditos", font_size=44).to_edge(UP)
         n = VGroup(*[Text(x, font_size=30) for x in INTEGRANTES]).arrange(DOWN, buff=0.3)
-        r = Text("Codigo: C++17 + Manim Community  |  github.com/[usuario]/[repo]", font_size=22, color=GREY_A).to_edge(DOWN, buff=1.0)
+        r = VGroup(Text("Codigo: C++17 + Manim Community", font_size=22, color=GREY_A), Text("github.com/e-mendoza2007/Proyecto-AED-Puentes-de-Tarjan", font_size=22, color=GREY_A)).arrange(DOWN, buff=0.15).to_edge(DOWN, buff=1.0)
         i = Text(INSPIRACION, font_size=20, color=GREY_B).to_edge(DOWN, buff=0.4)
         self.play(Write(t), FadeIn(n)); self.play(FadeIn(r), FadeIn(i)); self.wait(3)
