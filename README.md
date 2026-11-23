@@ -135,7 +135,8 @@ El script `scripts/cross_check.py` contrasta ambas implementaciones con 500 graf
 
 ## Video educativo
 
-El MP4 final se obtiene ejecutando los comandos anteriores. **Agregar aquí el enlace público o de acceso compartido al video final antes de la entrega.**
+El MP4 final se obtiene ejecutando los comandos anteriores. [Link del Video](https://drive.google.com/drive/folders/14ggmDNNMNlyXbra3Yd4-PyfM4ACPh1Bj?usp=sharing)
+
 
 ## Referencias
 
